@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <link rel="stylesheet" type="text/css" href="options.css">
+      <title>Superpowers for Twitter</title>
+    </head>
+    <body>
+      <main>
+        <section>
+          <h2>PRO Version</h2>
+          <div>
+            <label for="proActivationKey">Activation key</label><br>
+            <input id="proActivationKey" type="text" class="pro-activation-key">
+            <p>Paste/Enter your PRO activation key here.</p>
+            <a href="https://www.clemensteichmann.com/superpowers-for-twitter/pro" class="button button--pro hidden-pro" target="_blank">Get PRO</a>
+          </div>
+        </section>
+        <section>
+          <h2>Mass Follow</h2>
+          <div>
+            <label for="followIntervalMin">Pause after follow (seconds)</label><br>
+            <input min="0.1" id="followIntervalMin" placeholder="Min" step="0.1" type="number">
+            &ndash;
+            <input min="0.1" id="followIntervalMax" placeholder="Max" step="0.1" type="number">
+            <p>Pause x seconds (random between Min &ndash; Max) after each follow to prevent <a href="https://support.twitter.com/articles/355430" target="_blank">aggressive following</a></p>
+            <hr>
+            <label for="followPauseAfterSkipMin">Pause after skip (seconds)</label><br>
+            <input min="0.1" id="followPauseAfterSkipMin" placeholder="Min" step="0.1" type="number">
+            &ndash;
+            <input min="0.1" id="followPauseAfterSkipMax" placeholder="Max" step="0.1" type="number">
+            <p>Pause x seconds (random between Min &ndash; Max) after each skip. Leave these fields empty to skip without pausing.</p>
+            <hr>
+            <label for="followLimit">Limit</label><br>
+            <input id="followLimit" step="1" type="number">
+            <p>The extension will stop following when the limit (successfully followed profiles) is reached. Leave this field empty to set no limit.</p>
+            <p class="notification is-warning hidden-pro">With the free version you can only follow a maximum of 50 at a time.</p>
+            <hr>
+            <label for="followDailyLimit">Daily limit</label><br>
+            <input id="followDailyLimit" step="1" type="number">
+            <p>The extension will stop following when the daily limit (successfully mass followed profiles within the last 24 hours) is reached. Leave this field empty to set no daily limit. Please use 399 to avoid reaching the <a href="https://help.twitter.com/en/using-twitter/twitter-follow-limit" target="_blank">Twitter follow limit of 400</a>.</p>
+            <hr>
+            <label for="followSkipFollowed">Skip followed</label><br>
+            <label>
+              <input id="followSkipFollowed" type="checkbox"> Skip already once followed profiles
+            </label>
+            <hr>
+            <label for="followProfileImageRequired">Profile image required</label><br>
+            <label>
+              <input type="checkbox" id="followProfileImageRequired"> Follow only profiles with a custom profile image
+            </label>
+            <p>Skip profiles with the default profile image</p>
+            <hr>
+            <label for="followSkipProtected">Skip protected</label><br>
+            <label>
+              <input type="checkbox" id="followSkipProtected"> Skip protected profiles
+            </label>
+            <hr>
+            <label for="followProtectedRequired">Protected required</label><br>
+            <label>
+              <input type="checkbox" id="followProtectedRequired"> Follow only protected profiles
+            </label>
+            <hr>
+            <label for="followSkipFollower">Skip follower</label><br>
+            <label>
+              <input type="checkbox" id="followSkipFollower"> Skip profiles who already follow you
+            </label>
+            <hr>
+            <label for="followSkipVerified">Skip verified</label><br>
+            <label>
+              <input type="checkbox" id="followSkipVerified"> Skip verified accounts
+            </label>
+            <hr>
+            <label for="followBioRequired">Bio required</label><br>
+            <label>
+              <input type="checkbox" id="followBioRequired"> Follow only profiles with a biography
+            </label>
+            <hr>
+            <label for="followMinFollowing">Minimum following</label><br>
+            <input id="followMinFollowing" step="1" type="number">
+            <p>Follow only users with minimum x following. Leave this field empty to set no minimum following.</p>
+            <hr>
+            <label for="followMaxFollowing">Maximum following</label><br>
+            <input id="followMaxFollowing" step="1" type="number">
+            <p>Follow only users with maximum x following. Leave this field empty to set no maximum following.</p>
+            <hr>
+            <label for="followMinFollowers">Minimum followers</label><br>
+            <input id="followMinFollowers" step="1" type="number">
+            <p>Follow only users with minimum x followers. Leave this field empty to set no minimum followers.</p>
+            <hr>
+            <label for="followMaxFollowers">Maximum followers</label><br>
+            <input id="followMaxFollowers" step="1" type="number">
+            <p>Follow only users with maximum x followers. Leave this field empty to set no maximum followers.</p>
+            <hr>
+            <label for="followMinFollowersFollowingRatio">Minimum followers/following ratio</label><br>
+            <input id="followMinFollowersFollowingRatio" step="0.1" type="number">
+            <p>For example, if you only want to follow users with minimum twice as much followers as following, please use 2. If you only want to follow users with minimum half as much followers as following, please use 0.5. Leave this field empty to set no minimum followers/following ratio.</p>
+            <hr>
+            <label for="followMaxFollowersFollowingRatio">Maximum followers/following ratio</label><br>
+            <input id="followMaxFollowersFollowingRatio" step="0.1" type="number">
+            <p>For example, if you only want to follow users with maximum four times as many followers as following, please use 4. If you only want to follow users with fewer followers than following, please use 1. Leave this field empty to set no maximum followers/following ratio.</p>
+            <hr>
+            <label for="followPauseWhenTwitterLimitExceeded">Pause (minutes) when Twitter follow limit exceeded</label><br>
+            <input id="followPauseWhenTwitterLimitExceeded" min="1" step="1" type="number" required>
+            <p>Pause x minutes when <a href="https://help.twitter.com/en/using-twitter/twitter-follow-limit" target="_blank">Twitter follow limit</a> exceeded</p>
+            <hr>
+            <label for="followTweetLanguageWhitelist">Tweet language whitelist</label><br>
+            <input type="text" id="followTweetLanguageWhitelist">
+            <p>Comma-separated list of <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank">ISO 639-1 language codes</a>. Tweets in other languages will be skipped. For example, if you only want to follow users from <strong>English and Spanish</strong> Tweets, please use <strong>en,es</strong>. Leave this field empty to follow users from Tweets in all languages. Note: This option only applies if you follow from Tweets (e.g. on the search view).</p>
+            <hr>
+            <label for="followBlacklist">Blacklist</label><br>
+            <textarea id="followBlacklist" rows="6"></textarea>
+            <p>Comma-separated list of usernames, which will be skipped while following</p>
+            <hr>
+            <label for="followBioBlacklist">Bio blacklist</label><br>
+            <textarea id="followBioBlacklist" rows="6"></textarea>
+            <p>Comma-separated list of words. None of the words may appear in the profile bio.</p>
+            <hr>
+            <label for="followBioWhitelist">Bio whitelist</label><br>
+            <textarea id="followBioWhitelist" rows="6"></textarea>
+            <p>Comma-separated list of words. One of the words must appear in the profile bio.</p>
+          </div>
+        </section>
+        <section>
+          <h2>Mass Unfollow</h2>
+          <div>
+            <label for="unfollowIntervalMin">Pause after unfollow (seconds)</label><br>
+            <input min="0.1" id="unfollowIntervalMin" placeholder="Min" step="0.1" type="number">
+            &ndash;
+            <input min="0.1" id="unfollowIntervalMax" placeholder="Max" step="0.1" type="number">
+            <p>Pause x seconds (random between Min &ndash; Max) after each unfollow to prevent <a href="https://support.twitter.com/articles/355430" target="_blank">aggressive unfollowing</a></p>
+            <hr>
+            <label for="unfollowPauseAfterSkipMin">Pause after skip (seconds)</label><br>
+            <input min="0.1" id="unfollowPauseAfterSkipMin" placeholder="Min" step="0.1" type="number">
+            &ndash;
+            <input min="0.1" id="unfollowPauseAfterSkipMax" placeholder="Max" step="0.1" type="number">
+            <p>Pause x seconds (random between Min &ndash; Max) after each skip. Leave these fields empty to skip without pausing.</p>
+            <hr>
+            <label for="unfollowMinDaysFollowed">Days followed (minimum)</label><br>
+            <input type="number" id="unfollowMinDaysFollowed" step="1" min="0">
+            <p>Profiles followed less than x days will be skipped. This only applies to profiles followed with this extension.</p>
+            <hr>
+            <label for="unfollowLimit">Limit</label><br>
+            <input type="number" id="unfollowLimit" step="1">
+            <p>The extension will stop unfollowing when the limit (successfully unfollowed profiles) is reached. Leave this field empty to set no limit.</p>
+            <p class="notification is-warning hidden-pro">With the free version you can only unfollow a maximum of 50 at a time.</p>
+            <hr>
+            <label for="unfollowSkipFollower">Skip follower</label><br>
+            <label>
+              <input type="checkbox" id="unfollowSkipFollower"> Skip profiles who follow you
+            </label>
+            <hr>
+            <label for="unfollowSkipVerified">Skip verified</label><br>
+            <label>
+              <input type="checkbox" id="unfollowSkipVerified"> Skip verified accounts
+            </label>
+            <hr>
+            <label for="unfollowMassFollowedRequired">Mass followed required</label><br>
+            <label>
+              <input type="checkbox" id="unfollowMassFollowedRequired"> Unfollow only profiles which have been mass followed by this extension.
+            </label>
+            <hr>
+            <label for="unfollowBlacklist">Blacklist</label><br>
+            <textarea id="unfollowBlacklist" rows="6"></textarea>
+            <p>Comma separated list of usernames, which will be skipped while unfollowing</p>
+            <hr>
+            <label for="unfollowBioBlacklist">Bio blacklist</label><br>
+            <textarea id="unfollowBioBlacklist" rows="6"></textarea>
+            <p>Comma-separated list of words. None of the words may appear in the profile bio.</p>
+            <hr>
+            <label for="unfollowFollowingLessThan">Following less than</label><br>
+            <input min="1" id="unfollowFollowingLessThan" step="1" type="number">
+            <hr class="or">
+            <label for="unfollowFollowingGreaterThan">Following greater than</label><br>
+            <input min="1" id="unfollowFollowingGreaterThan" step="1" type="number">
+            <hr class="or">
+            <label for="unfollowFollowersLessThan">Followers less than</label><br>
+            <input min="1" id="unfollowFollowersLessThan" step="1" type="number">
+            <hr class="or">
+            <label for="unfollowFollowersGreaterThan">Followers greater than</label><br>
+            <input min="1" id="unfollowFollowersGreaterThan" step="1" type="number">
+          </div>
+        </section>
+        <section>
+          <h2>Mass Like</h2>
+          <div>
+            <label for="likeIntervalMin">Interval (seconds)</label><br>
+            <input min="0.1" id="likeIntervalMin" placeholder="Min" step="0.1" type="number">
+            &ndash;
+            <input min="0.1" id="likeIntervalMax" placeholder="Max" step="0.1" type="number">
+            <p>Wait x seconds (random between Min &ndash; Max) after each like to prevent aggressive liking</p>
+            <hr>
+            <label for="likeLimit">Limit</label><br>
+            <input id="likeLimit" step="1" type="number">
+            <p>The extension will stop liking when the limit (successfully liked Tweets) is reached. Leave this field empty to set no limit.</p>
+            <p class="notification is-warning hidden-pro">With the free version you can only like a maximum of 50 at a time.</p>
+            <hr>
+            <label for="likeMinTweetLikes">Minimum Tweet likes</label><br>
+            <input id="likeMinTweetLikes" step="1" type="number">
+            <p>Like only Tweets with minimum x likes. Leave this field empty to set no minimum Tweet likes.</p>
+            <hr>
+            <label for="likeMaxTweetLikes">Maximum Tweet likes</label><br>
+            <input id="likeMaxTweetLikes" step="1" type="number">
+            <p>Like only Tweets with maximum x likes. Leave this field empty to set no maximum Tweet likes.</p>
+            <hr>
+            <label for="likeSkipFollowed">Skip followed</label><br>
+            <label>
+              <input id="likeSkipFollowed" type="checkbox"> Skip Tweets from already once followed profiles
+            </label>
+            <hr>
+            <label for="likeSkipRetweets">Skip Tweet types</label><br>
+            <label style="margin-right: 1rem">
+              <input id="likeSkipRetweets" type="checkbox"> Retweets
+            </label>
+            <label style="margin-right: 1rem">
+              <input id="likeSkipRetweetsWithComment" type="checkbox"> Retweets with comment
+            </label>
+            <label>
+              <input id="likeSkipReplies" type="checkbox"> Replies
+            </label><br>
+            <hr>
+            <label for="likeSkipLikedXTweetsFromUser">Skip liked x Tweets from user</label><br>
+            <input id="likeSkipLikedXTweetsFromUser" step="1" type="number">
+            <p>Skip Tweet if you've already mass liked x Tweets from the user. For example, if you only want to mass like a maximum of 2 Tweets per user, please enter 2.</p>
+            <hr>
+            <label for="likeMinFollowing">Minimum following</label><br>
+            <input id="likeMinFollowing" step="1" type="number">
+            <p>Only Tweets from users with minimum x following. Leave this field empty to set no minimum following.</p>
+            <hr>
+            <label for="likeMaxFollowing">Maximum following</label><br>
+            <input id="likeMaxFollowing" step="1" type="number">
+            <p>Only Tweets from users with maximum x following. Leave this field empty to set no maximum following.</p>
+            <hr>
+            <label for="likeMinFollowers">Minimum followers</label><br>
+            <input id="likeMinFollowers" step="1" type="number">
+            <p>Only Tweets from users with minimum x followers. Leave this field empty to set no minimum followers.</p>
+            <hr>
+            <label for="likeMaxFollowers">Maximum followers</label><br>
+            <input id="likeMaxFollowers" step="1" type="number">
+            <p>Only Tweets from users with maximum x followers. Leave this field empty to set no maximum followers.</p>
+            <hr>
+            <label for="likeMinFollowersFollowingRatio">Minimum followers/following ratio</label><br>
+            <input id="likeMinFollowersFollowingRatio" step="0.1" type="number">
+            <p>For example, if you only want to like Tweets from users with minimum twice as much followers as following, please use 2. If you only want to like Tweets from users with minimum half as much followers as following, please use 0.5. Leave this field empty to set no minimum followers/following ratio.</p>
+            <hr>
+            <label for="likeMaxFollowersFollowingRatio">Maximum followers/following ratio</label><br>
+            <input id="likeMaxFollowersFollowingRatio" step="0.1" type="number">
+            <p>For example, if you only want to like Tweets from users with maximum four times as many followers as following, please use 4. If you only want to like Tweets from users with fewer followers than following, please use 1. Leave this field empty to set no maximum followers/following ratio.</p>
+            <hr>
+            <label for="likeLanguageWhitelist">Language whitelist</label><br>
+            <input type="text" id="likeLanguageWhitelist">
+            <p>Comma separated list of <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank">ISO 639-1 language codes</a>. Tweets in other languages will be skipped. For example, if you only want to like <strong>English and Spanish</strong> Tweets, please use <strong>en,es</strong>. Leave this field empty to like Tweets in all languages.</p>
+            <hr>
+            <label for="likeTweetTextBlacklist">Tweet text blacklist</label><br>
+            <textarea id="likeTweetTextBlacklist" rows="6"></textarea>
+            <p>Comma-separated list of words. None of the words may appear in the Tweet text.</p>
+            <hr>
+            <label for="likePauseWhenUnableToLike">Pause (minutes) when unable to like</label><br>
+            <input id="likePauseWhenUnableToLike" min="1" step="1" type="number" required>
+            <p>Pause x minutes when your account is temporarily unable to like Tweets</p>
+          </div>
+        </section>
+        <section>
+          <h2>Mass Unlike</h2>
+          <div>
+            <label for="unlikeIntervalMin">Interval (seconds)</label><br>
+            <input min="0.1" id="unlikeIntervalMin" placeholder="Min" step="0.1" type="number">
+            &ndash;
+            <input min="0.1" id="unlikeIntervalMax" placeholder="Max" step="0.1" type="number">
+            <p>Wait x seconds (random between Min &ndash; Max) after each unlike</p>
+            <hr>
+            <label for="unlikeLimit">Limit</label><br>
+            <input type="number" id="unlikeLimit" step="1">
+            <p>The extension will stop unliking when the limit (successfully unliked Tweets) is reached. Leave this field empty to set no limit.</p>
+            <p class="notification is-warning hidden-pro">With the free version you can only unlike a maximum of 50 at a time.</p>
+            <hr>
+            <label for="unlikeMinDaysSinceLike">Minimum days since Like</label><br>
+            <input type="number" id="unlikeMinDaysSinceLike" step="1" min="0">
+            <p>Likes created less than x days ago will be skipped. Note: This option only works for Tweets that have been liked by this extension.</p>
+            <hr>
+            <label for="unlikeMassLikedRequired">Mass liked required</label><br>
+            <label>
+              <input type="checkbox" id="unlikeMassLikedRequired"> Tweet must have been mass liked by this extension.
+            </label>
+          </div>
+        </section>
+        <section>
+          <h2>Mass Retweet</h2>
+          <div>
+            <label for="retweetIntervalMin">Interval (seconds)</label><br>
+            <input min="0.1" id="retweetIntervalMin" placeholder="Min" step="0.1" type="number">
+            &ndash;
+            <input min="0.1" id="retweetIntervalMax" placeholder="Max" step="0.1" type="number">
+            <p>Wait x seconds (random between Min &ndash; Max) after each retweet to prevent aggressive retweeting</p>
+            <hr>
+            <label for="retweetLimit">Limit</label><br>
+            <input id="retweetLimit" step="1" type="number">
+            <p>The extension will stop retweeting when the limit (successfully retweeted Tweets) is reached. Leave this field empty to set no limit.</p>
+            <p class="notification is-warning hidden-pro">With the free version you can only retweet a maximum of 50 at a time.</p>
+            <hr>
+            <label for="retweetSkipFollowed">Skip followed</label><br>
+            <label>
+              <input id="retweetSkipFollowed" type="checkbox"> Skip Tweets from already once followed profiles
+            </label>
+            <hr>
+            <label for="retweetSkipRetweets">Skip Tweet types</label><br>
+            <label style="margin-right: 1rem">
+              <input id="retweetSkipRetweets" type="checkbox"> Retweets
+            </label>
+            <label style="margin-right: 1rem">
+              <input id="retweetSkipRetweetsWithComment" type="checkbox"> Retweets with comment
+            </label>
+            <label>
+              <input id="retweetSkipReplies" type="checkbox"> Replies
+            </label><br>
+            <hr>
+            <label for="retweetLanguageWhitelist">Language whitelist</label><br>
+            <input type="text" id="retweetLanguageWhitelist">
+            <p>Comma separated list of <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank">ISO 639-1 language codes</a>. Tweets in other languages will be skipped. For example, if you only want to retweet <strong>English and Spanish</strong> Tweets, please use <strong>en,es</strong>. Leave this field empty to retweet Tweets in all languages.</p>
+            <hr>
+            <label for="retweetTweetTextBlacklist">Tweet text blacklist</label><br>
+            <textarea id="retweetTweetTextBlacklist" rows="6"></textarea>
+            <p>Comma-separated list of words. None of the words may appear in the Tweet text.</p>
+            <hr>
+            <label for="retweetPauseWhenUnableToRetweet">Pause (minutes) when unable to retweet</label><br>
+            <input id="retweetPauseWhenUnableToRetweet" min="1" step="1" type="number" required>
+            <p>Pause x minutes when your account is temporarily unable to retweet Tweets</p>
+          </div>
+        </section>
+        <section>
+          <h2>Mass Unretweet</h2>
+          <div>
+            <label for="unretweetIntervalMin">Interval (seconds)</label><br>
+            <input min="0.1" id="unretweetIntervalMin" placeholder="Min" step="0.1" type="number">
+            &ndash;
+            <input min="0.1" id="unretweetIntervalMax" placeholder="Max" step="0.1" type="number">
+            <p>Wait x seconds (random between Min &ndash; Max) after each unretweet</p>
+            <hr>
+            <label for="unretweetLimit">Limit</label><br>
+            <input type="number" id="unretweetLimit" step="1">
+            <p>The extension will stop unretweeting when the limit (successfully unretweeted Tweets) is reached. Leave this field empty to set no limit.</p>
+            <p class="notification is-warning hidden-pro">With the free version you can only unretweet a maximum of 50 at a time.</p>
+            <hr>
+            <label for="unretweetMinDaysSinceRetweet">Minimum days since Retweet</label><br>
+            <input type="number" id="unretweetMinDaysSinceRetweet" step="1" min="0">
+            <p>Retweets created less than x days ago will be skipped.</p>
+            <hr>
+            <label for="unretweetMassRetweetedRequired">Mass retweeted required</label><br>
+            <label>
+              <input type="checkbox" id="unretweetMassRetweetedRequired"> Tweet must have been mass retweeted by this extension.
+            </label>
+          </div>
+        </section>
+        <section>
+          <h2>Autopilot</h2>
+          <div>
+            <p>The autopilot performs a series of actions and repeats them after a certain pause. As soon as you have defined at least 2 actions, the autopilot can be started on the Twitter homepage (you may need to refresh the Twitter page). The Mass Follow, Mass Unfollow, Mass Like and Mass Retweet options defined above do apply.</p>
+            <p class="notification is-info"><a href="https://www.youtube.com/watch?v=M8coqv82T9c" target="_blank">Watch the demo</a> to see how to set it up</p>
+            <p class="notification is-warning hidden-pro">In the free version, the autopilot is limited to 2 actions.</p>
+            <table class="actions">
+              <thead>
+                <tr class="action">
+                  <th>No.</th>
+                  <th>Type</th>
+                  <th>URL</th>
+                  <th>Limit*</th>
+                  <th>Idle timeout (seconds)**</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="actions">
+              </tbody>
+            </table>
+            <button id="add_action" class="button button--add">Add action</button>
+            <p>* You can also overwrite the limit for each action.</p>
+            <p>** If no successful follow/unfollow/like/retweet could be made for x seconds, continue with the next action. Note: Mass Follow/Unfollow/Like/Retweet Interval (seconds) does not count as idle. Leave this field empty to set no idle timeout.</p>
+            <hr>
+            <label for="autopilotRepeatAfter">Repeat after (minutes)</label><br>
+            <input id="autopilotRepeatAfter" min="1" placeholder="Min" step="1" type="number">
+            &ndash;
+            <input id="autopilotRepeatAfterMax" min="1" placeholder="Max" step="1" type="number">
+            <p>Repeat autopilot after x minutes (random between Min &ndash; Max). Leave this field empty if you do not want to repeat the autopilot.</p>
+            <p class="notification is-warning hidden-pro">Not supported in the free version</p>
+            <hr>
+            <label for="autopilotPauseAfterActionMin">Pause after action (seconds)</label><br>
+            <input min="0.1" id="autopilotPauseAfterActionMin" placeholder="Min" step="0.1" type="number">
+            &ndash;
+            <input min="0.1" id="autopilotPauseAfterActionMax" placeholder="Max" step="0.1" type="number">
+            <p>Pause x seconds (random between Min &ndash; Max) after each action</p>
+          </div>
+        </section>
+      </main>
+      <script src="options.js"></script>
+    </body>
+  </html>

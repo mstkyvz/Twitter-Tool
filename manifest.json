@@ -1,0 +1,23 @@
+{
+   "author": "Clemens Teichmann",
+   "content_scripts": [ {
+      "css": [ "content.css" ],
+      "js": [ "content.js" ],
+      "matches": [ "https://mobile.twitter.com/*", "https://twitter.com/*" ],
+      "run_at": "document_end"
+   } ],
+   "description": "Mass follow, mass unfollow, mass like, mass unlike, mass retweet and mass unretweet on Twitter with powerful options.",
+   "homepage_url": "https://www.clemensteichmann.com/superpowers-for-twitter",
+   "icons": {
+      "128": "images/mass_follow_for_new_twitter128.png",
+      "16": "images/mass_follow_for_new_twitter16.png",
+      "48": "images/mass_follow_for_new_twitter48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuSCSZMYbwv03Gqzaaz5kvS9bLZCJJLNXOfFmQ5dxqy8s1+6E68SHTBWml3BagMp/mQTbA7/KF65elN2nSo4wmohfa/Ll2ELg2D1TDQZpql9rqKh3S28wC4Xa5oHh2SKG3TP+zpH9ghcpGLKkAVloz/D9hHpeGj4vMZ1NDvKJuytKtaXRdfy1Mtv2h7fv0WdW28liyUt7PVWpYLvLk9ear//PqJ06ZpUA9QDeWb+wt6yKGjrkXAUKh/HysenNRswoasmKka3R0FrcxLy0FLmGLw81lmhfXAuymlNefpf5gx+TOc4iDyiHYu4r80YFbqGucKOD2TXmP7DybxP1Yi56sQIDAQAB",
+   "manifest_version": 2,
+   "name": "Superpowers for Twitter",
+   "options_page": "options.html",
+   "permissions": [ "storage", "unlimitedStorage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "74"
+}
