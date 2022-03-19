@@ -1,4 +1,14 @@
 # Twitter-Tool
+Superpowers for Twitter
+
+some features unlocked
+bazı özelliklerin kilidi açıldı
+
+or if you want to edit it yourself
+contenjs line 1664 const kn = 50; yi const kn = 950; or type the number you want.
+
+veya kendiniz editlemek isterseniz
+contenjs 1664. satır  const kn = 50; yi const kn = 950; veya istediğiniz sayısı yazınız.
 [EN]
 Mass Follow
 It works on the followers, following, likes, retweets, list members/subscribers and search view.
